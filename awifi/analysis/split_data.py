@@ -1,7 +1,10 @@
 # coding:utf-8
 import pandas as pd
 import time
-import datatime
+import datetime
+
+start_time = '2018/3/1'
+end_time = '2018/5/1'
 
 # str类型时间转为datatime
 def str_2_datatime(str):
@@ -12,7 +15,7 @@ def string_2_timestamp(time_str):
     return int(time.mktime(time.strptime(time_str,'%Y/%m/%d')))
 
 # 过滤时间，默认为 2018/2/1-2018/4/1 零点
-def filter_date(df,start_time='2018/2/1',end_time='2018/4/1'):
+def filter_date(df,start_time=start_time,end_time=end_time):
     start_time = string_2_timestamp(start_time)
     end_time = string_2_timestamp(end_time)
     df =df[(df.time>=start_time) & (df.time<end_time)]
@@ -31,7 +34,7 @@ def timestap_date(value):
     value = time.localtime(value)
     return time.strftime(format,value)
 
-def get_full_time_df(start_time='2018/2/1',end_time='2018/4/1',freq='H'):
+def get_full_time_df(start_time=start_time,end_time=end_time,freq='H'):
     all_time = pd.date_range(start_time,end_time, freq=freq)
     full_time_df = pd.DataFrame(data={'time': all_time})
     return full_time_df

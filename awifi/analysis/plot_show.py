@@ -15,3 +15,9 @@ def plt_random_cols(df,cols_index,rand_col_num):
     TOOLS = 'pan,wheel_zoom,crosshair,resize,reset,save'
     ts_plt = TimeSeries(data,title="time series",xlabel='time',ylabel='count',plot_width=900, plot_height=500,tools=TOOLS)
     show(ts_plt)
+    
+def plt_one_ts(ts):
+    plt.legend(loc="best")
+    TOOLS = 'pan,wheel_zoom,crosshair,resize,reset,save'
+    ts_plt = TimeSeries(ts,title="time series",xlabel='time',ylabel='count',plot_width=900, plot_height=500,tools=TOOLS)
+    show(ts_plt)
