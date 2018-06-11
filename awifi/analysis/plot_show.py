@@ -15,6 +15,13 @@ def plt_random_cols(df,cols_index,rand_col_num):
     ts_plt = TimeSeries(data,title="time series",xlabel='time',ylabel='count',plot_width=900, plot_height=500,tools=TOOLS)
     show(ts_plt)
     
+def plt_random_numpy(scaler_data,cols_index,rand_col_num):
+    cols = random.sample(cols_index,rand_col_num)
+    data = scaler_data[:,cols].T
+    TOOLS = 'pan,wheel_zoom,crosshair,resize,reset,save'
+    ts_plt = TimeSeries(data,title="time series",xlabel='time',ylabel='count',plot_width=900, plot_height=500,tools=TOOLS)
+    show(ts_plt)
+    
 def plt_one_ts(ts):
     plt.legend(loc="best")
     TOOLS = 'pan,wheel_zoom,crosshair,resize,reset,save'
